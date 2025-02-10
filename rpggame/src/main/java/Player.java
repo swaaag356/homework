@@ -1,10 +1,11 @@
 public class Player extends Entity {
-    protected int healthPoints = 150;
-    protected int armor = 50;
-    protected int damage = 20;
+    protected int damage;
 
     public Player(String name, int age) {
         super(name, age);
+        healthPoints = 150;
+        armor = 50;
+        damage = 20;
     }
 
     public void attack(Entity e) {

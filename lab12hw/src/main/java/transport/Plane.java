@@ -1,7 +1,4 @@
-package origin.transport;
-import origin.City;
-import origin.Passenger;
-import origin.TransportAction;
+package transport;
 
 public class Plane implements TransportAction {
 

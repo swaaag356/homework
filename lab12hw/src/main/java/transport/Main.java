@@ -1,8 +1,4 @@
-package origin;
-
-import origin.transport.Plane;
-import origin.transport.Ship;
-import origin.transport.Train;
+package transport;
 
 import java.util.Random;
 

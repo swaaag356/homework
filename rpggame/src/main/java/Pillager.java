@@ -1,20 +1,23 @@
 public class Pillager extends Monster {
-    protected int healthPoints = 200;
-    protected int armor = 100;
-    protected int damage = 25;
 
     public Pillager() {
+        armor = 100;
+        healthPoints = 200;
+        damage = 25;
     }
 
 
     public Pillager(String name, int age) {
         super(name, age);
+        armor = 100;
+        healthPoints = 200;
+        damage = 25;
     }
 
     @Override
-    public void attack(Entity e) {//p2=e
+    public void attack(Entity e) {
         if (e.armor > 0) {
-            e.setArmor(e.armor-20);
+            e.setArmor(e.armor-this.damage);
         } else {
             e.setHealthPoints(e.healthPoints-this.damage);
         }

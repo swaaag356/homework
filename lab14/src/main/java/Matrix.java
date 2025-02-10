@@ -41,10 +41,14 @@ public class Matrix {
     }
 
     public static double det(Matrix matrix) {
-        double det = 1;
+        if (matrix.rows() == 1) {
+            return matrix.components[0][0];
+        }
+
         if (matrix.rows() == 2) {
             return matrix.components[0][0] * matrix.components[1][1] - matrix.components[0][1] * matrix.components[1][0];
         }
+        double det = 1;
 
         for (int j = 0; j < matrix.columns(); j++) {
             Matrix minor = new Matrix(getMinor(matrix, 0, j));
@@ -74,8 +78,8 @@ public class Matrix {
     public Matrix multRVector(LAVector vector) {
         Matrix newMatrix = new Matrix(1, this.columns());
 
-        for (int i = 0; i < this.columns(); i++){
-            for (int j = 0; j < this.rows(); j++){
+        for (int i = 0; i < this.columns(); i++) {
+            for (int j = 0; j < this.rows(); j++) {
                 newMatrix.components[0][i] += vector.getComponent(j) * this.components[j][i];
             }
         }
@@ -84,8 +88,8 @@ public class Matrix {
 
     public Matrix multLVector(LAVector vector) {
         Matrix newMatrix = new Matrix(this.rows(), 1);
-        for (int i = 0; i < this.rows(); i++){
-            for (int j = 0; j < this.columns(); j++){
+        for (int i = 0; i < this.rows(); i++) {
+            for (int j = 0; j < this.columns(); j++) {
                 newMatrix.components[i][0] += this.components[i][j] * vector.getComponent(j);
             }
         }

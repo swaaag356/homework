@@ -1,14 +1,19 @@
 public class ZombieBull extends Monster {
-    private int healthPoints = 120;
-    private int stamina = 100;
-    private int damage = 20;
-    private int armor = 150;
+    protected int stamina;
 
     public ZombieBull() {
+        healthPoints = 120;
+        stamina = 100;
+        damage = 20;
+        armor = 150;
     }
 
     public ZombieBull(String name, int age) {
         super(name, age);
+        healthPoints = 120;
+        stamina = 100;
+        damage = 20;
+        armor = 150;
     }
 
     @Override

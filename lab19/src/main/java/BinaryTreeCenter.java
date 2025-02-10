@@ -1,4 +1,15 @@
 public class BinaryTreeCenter extends BinaryTree {
+
+
+    public BinaryTreeCenter(int[] arr) {
+        super(arr);
+    }
+
+    @Override
+    public void traversalTree() {
+        traversalTree(root);
+    }
+
     @Override
     public void traversalTree(Node node){
         if (node == null) return;

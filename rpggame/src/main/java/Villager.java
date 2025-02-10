@@ -1,10 +1,11 @@
 public class Villager extends Entity {
-    protected int healthPoints = 100;
-    protected int armor = 50;
-    protected int damage = 15;
+    protected int damage;
 
 
     public Villager() {
+        healthPoints = 100;
+        armor = 50;
+        damage = 15;
     }
 
     public Villager(String name, int age) {

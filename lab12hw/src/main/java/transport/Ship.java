@@ -1,8 +1,4 @@
-package origin.transport;
-import origin.City;
-import origin.Passenger;
-import origin.TransportAction;
-
+package transport;
 
 public class Ship implements TransportAction {
     public String name;

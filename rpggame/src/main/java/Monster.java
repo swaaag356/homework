@@ -1,12 +1,15 @@
 public class Monster extends Entity {
-    protected int healthPoints = 100;
-    protected int damage = 10;
+    protected int damage;
 
     public Monster() {
+        healthPoints = 100;
+        damage = 10;
     }
 
     public Monster(String name, int age) {
         super(name, age);
+        healthPoints = 100;
+        damage = 10;
     }
 
     @Override

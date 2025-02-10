@@ -1,4 +1,4 @@
-package origin;
+package transport;
 
 public class Passenger {
 

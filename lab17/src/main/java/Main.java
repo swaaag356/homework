@@ -13,12 +13,12 @@ public class Main {
             try {
                 System.out.println("Введите логин (должен содержать не менее 20 символов: латинские буквы, цифры и символов (@ . _ -) )");
                 String login = scanner.nextLine();
-                System.out.println("Введите пароль из не менее 8 символов: латинские буквы, цифры и символы {}[](),.;&?!_-+");
-                String password = scanner.nextLine();
-                Role role = userCheck(login, password, users);
                 if (login.equals("exit")) {
                     System.exit(0);
                 }
+                System.out.println("Введите пароль из не менее 8 символов: латинские буквы, цифры и символы {}[](),.;&?!_-+");
+                String password = scanner.nextLine();
+                Role role = User.userCheck(login, password, users);
                 if (role == null) {
                     throw new RuntimeException("Неправильный логин или пароль. Попробуйте ещё раз");
                 }
@@ -26,39 +26,14 @@ public class Main {
                     System.out.println("ADMIN's Menu:" + "\n 1) File" + "\n 2) Create new User" + "\n 3) Exit");
                     break;
                 } else if (role == Role.USER) {
-                    System.out.println("ADMIN's Menu:" + "\n 1) File" + "\n 2) Get play list" + "\n 3) Exit");
+                    System.out.println("USER's Menu:" + "\n 1) File" + "\n 2) Get play list" + "\n 3) Exit");
                     break;
                 }
 
-            } catch (WrongPasswordException e) {
+            } catch (WrongPasswordException | WrongLoginException e) {
                 System.out.println(e.getMessage());
-            } catch (WrongLoginException e) {
-                System.out.println(e.getMessage());
-
             }
         }
     }
-    public static Role userCheck (String login, String password, User[]users) throws
-            WrongLoginException, WrongPasswordException {
-        Pattern patternLogin = Pattern.compile("^(?=.{20,}$)[a-zA-Z0-9@._-]+$");
-        Pattern patternPassword = Pattern.compile("^(?=.{8,}$)[a-zA-Z0-9{}\\[\\]();.,;&?!_+\\-]+$");
 
-        Matcher matcherLogin = patternLogin.matcher(login);
-        Matcher matcherPassword = patternPassword.matcher(password);
-
-        if (!matcherLogin.find()) {
-            throw new WrongLoginException("Login должен содержать не менее 8 символов: латинские буквы, цифры и {}[](),.;&?!_-+");
-        }
-
-        if (!matcherPassword.find()) {
-            throw new WrongPasswordException("PasswordsashaKrutoyPeretc228@gmail.com должен содержать не менее 20 символов: латинскиx букв прописных и строчных, цифр и символов @ . _ -");
-        }
-
-        for (int i = 0; i < users.length; ++i) {
-            if (users[i].getLogin().equals(login) && users[i].getPassword().equals(password)) {
-                return users[i].getRole();
-            }
-        }
-        return null;
-    }
 }

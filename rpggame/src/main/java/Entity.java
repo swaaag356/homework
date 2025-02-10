@@ -1,15 +1,19 @@
 public class Entity {
     protected String name;
     protected int age;
-    protected int healthPoints = 10;
-    protected int armor = 10;
+    protected int healthPoints;
+    protected int armor;
 
     public Entity() {
+        healthPoints = 10;
+        armor = 10;
     }
 
     public Entity(String name, int age) {
         this.name = name;
         this.age = age;
+        healthPoints = 10;
+        armor = 10;
     }
 
 

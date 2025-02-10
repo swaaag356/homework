@@ -1,25 +1,21 @@
 public class Test {
     public static void main(String[] args) {
-        Integer i = 10;
+        LeftIntegralCulc calculateIntegralLeft = new LeftIntegralCulc(0, Math.PI, new Sinus());
+        System.out.println(calculateIntegralLeft.get());
 
-        Integer a = 10;
-        Integer b = 20;
-        int c = a + b; //распаковка
+        System.out.println("-------------");
 
-        Integer d = c * 20;  //упаковка
+        MiddleIntegralCulc calculateIntegralMiddle = new MiddleIntegralCulc(0, Math.PI, new Sinus());
+        System.out.println(calculateIntegralMiddle.get());
 
-        System.out.println(d);
-    }
+        System.out.println("-------------");
 
-    public static Integer func1 (int a) {
-        return a + 1;
-    }
+        RightIntegralCulc calculateIntegralRight = new RightIntegralCulc(0, Math.PI, new Sinus());
+        System.out.println(calculateIntegralRight.get());
 
-    public static Integer func2 (Integer a) {
-        return a-1;
-    }
+        System.out.println("-------------");
 
-    public static int func3(int a) {
-        return a + 1;
+        TrapetionIntegralCulc calculateIntegralTrapezium = new TrapetionIntegralCulc(0, Math.PI, new Sinus());
+        System.out.println(calculateIntegralTrapezium.get());
     }
 }
